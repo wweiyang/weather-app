@@ -3,9 +3,11 @@ import { useWeather } from "../useWeather";
 import { storeSearchHistory, transformData } from "../utils";
 import styles from "./results.module.css";
 import axios from "axios";
+import { WEATHER_API_KEY } from "../constants";
 
 export default function Results(): JSX.Element {
-  const { setCity, setCountry, weatherData, setWeatherData } = useWeather();
+  const { setCity, setCountry, weatherData, setWeatherData, error, setError } =
+    useWeather();
   const [trigger, setTrigger] = useState(false); // new state variable
 
   const transformedData = transformData(weatherData);
@@ -25,11 +27,12 @@ export default function Results(): JSX.Element {
   const getWeather = async (city: string, country: string) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${WEATHER_API_KEY}`
       );
       setWeatherData(response.data);
     } catch (error) {
       console.error(error);
+      setError("Not found");
     }
   };
 

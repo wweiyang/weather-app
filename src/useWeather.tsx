@@ -7,6 +7,8 @@ interface WeatherContextType {
   setCountry: React.Dispatch<React.SetStateAction<string>>;
   weatherData: any;
   setWeatherData: React.Dispatch<React.SetStateAction<any>>;
+  error: string;
+  setError: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const WeatherContext = createContext<WeatherContextType | undefined>(undefined);
@@ -17,6 +19,7 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [error, setError] = useState("");
 
   return (
     <WeatherContext.Provider
@@ -27,6 +30,8 @@ export const WeatherProvider: React.FC<{ children: React.ReactNode }> = ({
         setCountry,
         weatherData,
         setWeatherData,
+        error,
+        setError,
       }}
     >
       {children}
