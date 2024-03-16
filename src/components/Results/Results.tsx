@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useWeather } from "../useWeather";
-import { storeSearchHistory, transformData } from "../utils";
+import { useWeather } from "../../hooks/useWeather";
+import { storeSearchHistory, transformData } from "../../utils/utils";
 import styles from "./results.module.css";
 import axios from "axios";
-import { WEATHER_API_KEY } from "../constants";
+import { WEATHER_API_KEY } from "../../utils/constants";
 
 export default function Results(): JSX.Element {
   const { setCity, setCountry, weatherData, setWeatherData, error, setError } =

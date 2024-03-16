@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { useWeather } from "../useWeather";
+import { useWeather } from "../../hooks/useWeather";
 import styles from "./form.module.css";
-import { WEATHER_API_KEY } from "../constants";
+import { WEATHER_API_KEY } from "../../utils/constants";
 
 export default function Form(): JSX.Element {
   const {

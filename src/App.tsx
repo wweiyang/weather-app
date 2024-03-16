@@ -1,15 +1,13 @@
-import { WeatherProvider } from "./useWeather";
-import Form from "./Form/Form";
-import Results from "./Results/Results";
+import { WeatherProvider } from "./hooks/useWeather";
+import Form from "./components/Form/Form";
+import Results from "./components/Results/Results";
 
 function App() {
   return (
     <div>
       <WeatherProvider>
-        <div>
-          <Form />
-          <Results />
-        </div>
+        <Form />
+        <Results />
       </WeatherProvider>
     </div>
   );
