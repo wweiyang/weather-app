@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
+import { API_KEY } from "./constants";
+import axios from "axios";
 
 function App() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
+  const [weatherData, setWeatherData] = useState();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(city, country);
+    getWeather(city, country);
+  };
+
+  const getWeather = async (city: string, country: string) => {
+    try {
+      const response = await axios.get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`
+      );
+      console.log(response.data);
+      setWeatherData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleClear = () => {
@@ -15,6 +30,26 @@ function App() {
     setCountry("");
   };
 
+  // TODO: put functions into separate utils file
+  const transformData = (data: any) => {
+    if (!data) return;
+    const transformedData = {
+      location: data.name,
+      country: data.sys.country,
+      title: data.weather[0].main,
+      description: data.weather[0].description,
+      temperature: data.main.temp,
+      temperatureMin: data.main.temp_min,
+      temperatureMax: data.main.temp_max,
+      humidity: data.main.humidity,
+      time: new Date(data.dt * 1000).toLocaleString(),
+    };
+    return transformedData;
+  };
+
+  const transformedData = transformData(weatherData);
+
+  // TODO: create a separate component for the form
   return (
     <div>
       <h1>Today's Weather</h1>
@@ -42,26 +77,27 @@ function App() {
           </button>
         </div>
       </form>
-      <div>
-        <p>location</p>
-        <p>title</p>
+      {transformedData && (
         <div>
-          <p>Description:</p>
-          <p>description</p>
+          <p>{`${transformedData?.location}, ${transformedData.country}`}</p>
+          <p>{transformedData?.title}</p>
+          <div>
+            <p>{transformedData?.description}</p>
+          </div>
+          <div>
+            <p>{`${transformedData?.temperature}\u00B0C`}</p>
+          </div>
+          <div>
+            <p>{`${transformedData?.temperatureMin}\u00B0C - ${transformedData?.temperatureMax}\u00B0C`}</p>
+          </div>
+          <div>
+            <p>{`${transformedData.humidity}%`}</p>
+          </div>
+          <div>
+            <p>{transformedData?.time}</p>
+          </div>
         </div>
-        <div>
-          <p>Temperature:</p>
-          <p>temperature</p>
-        </div>
-        <div>
-          <p>Humidity:</p>
-          <p>humidity</p>
-        </div>
-        <div>
-          <p>Time:</p>
-          <p>time</p>
-        </div>
-      </div>
+      )}
       <div>
         <h1>Search History</h1>
         <div className={styles.historyItem}>
