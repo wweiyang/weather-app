@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./App.module.css";
-import { API_KEY } from "./constants";
 import axios from "axios";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
   const getWeather = async (city: string, country: string) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       );
       console.log(response.data);
       setWeatherData(response.data);
@@ -25,7 +24,7 @@ function App() {
     }
   };
 
-  const handleClear = () => {
+  const handleClearInputs = () => {
     setCity("");
     setCountry("");
   };
@@ -72,7 +71,7 @@ function App() {
         />
         <div>
           <button type="submit">Submit</button>
-          <button type="button" onClick={handleClear}>
+          <button type="button" onClick={handleClearInputs}>
             Clear
           </button>
         </div>
