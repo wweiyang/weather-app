@@ -5,7 +5,7 @@ import axios from "axios";
 function App() {
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
-  const [weatherData, setWeatherData] = useState();
+  const [weatherData, setWeatherData] = useState(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,8 +30,20 @@ function App() {
   };
 
   // TODO: put functions into separate utils file
-  const transformData = (data: any) => {
-    if (!data) return;
+  const transformData = (
+    data: any
+  ): {
+    location: string;
+    country: string;
+    title: string;
+    description: string;
+    temperature: number;
+    temperatureMin: number;
+    temperatureMax: number;
+    humidity: number;
+    datetime: string;
+  } | null => {
+    if (!data) return null;
     const transformedData = {
       location: data.name,
       country: data.sys.country,
@@ -41,12 +53,36 @@ function App() {
       temperatureMin: data.main.temp_min,
       temperatureMax: data.main.temp_max,
       humidity: data.main.humidity,
-      time: new Date(data.dt * 1000).toLocaleString(),
+      datetime: new Date(data.dt * 1000).toLocaleString(),
     };
     return transformedData;
   };
+  const storeSearchHistory = (
+    transformedData: {
+      location: string;
+      country: string;
+      title: string;
+      description: string;
+      temperature: number;
+      temperatureMin: number;
+      temperatureMax: number;
+      humidity: number;
+      datetime: string;
+    } | null
+  ) => {
+    if (!transformedData) return;
+    localStorage.setItem(
+      `${transformedData?.datetime}`,
+      JSON.stringify(transformedData)
+    );
+  };
 
   const transformedData = transformData(weatherData);
+  storeSearchHistory(transformedData);
+
+  const localStorageEntries = Object.entries(localStorage)?.map(
+    ([key, value]) => [key, JSON.parse(value)]
+  );
 
   // TODO: create a separate component for the form
   return (
@@ -93,20 +129,22 @@ function App() {
             <p>{`${transformedData.humidity}%`}</p>
           </div>
           <div>
-            <p>{transformedData?.time}</p>
+            <p>{transformedData?.datetime}</p>
           </div>
         </div>
       )}
       <div>
         <h1>Search History</h1>
-        <div className={styles.historyItem}>
-          <p>location</p>
-          <p>time</p>
-          <div>
-            <button>search</button>
-            <button>delete</button>
+        {localStorageEntries.map(([key, value]) => (
+          <div className={styles.historyItem} key={key}>
+            <p>{`${value.location}, ${value.country}`}</p>
+            <p>{`${value.datetime}`}</p>
+            <div>
+              <button>search</button>
+              <button>delete</button>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
