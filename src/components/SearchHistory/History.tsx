@@ -8,6 +8,7 @@ import { WEATHER_API_KEY } from "../../utils/constants";
 
 export default function SearchHistory(): JSX.Element {
   const { setCity, setCountry, setWeatherData, setError } = useWeather();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [trigger, setTrigger] = useState(false);
 
   const localStorageEntries = Object.entries(localStorage)?.map(
