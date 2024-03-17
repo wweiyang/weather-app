@@ -17,9 +17,9 @@ export const transformData = (data: any): TransformedData | null => {
     country: data.sys.country,
     title: data.weather[0].main,
     description: data.weather[0].description,
-    temperature: data.main.temp,
-    temperatureMin: data.main.temp_min,
-    temperatureMax: data.main.temp_max,
+    temperature: Math.round(data.main.temp),
+    temperatureMin: Math.round(data.main.temp_min),
+    temperatureMax: Math.round(data.main.temp_max),
     humidity: data.main.humidity,
     datetime: new Date(data.dt * 1000).toLocaleString(),
   };
