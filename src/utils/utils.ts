@@ -19,7 +19,16 @@ export const transformData = (data: any): TransformedData | null => {
     temperatureMin: Math.round(data.main.temp_min),
     temperatureMax: Math.round(data.main.temp_max),
     humidity: data.main.humidity,
-    datetime: new Date(data.dt * 1000).toLocaleString(),
+    datetime: new Date(data.dt * 1000)
+      .toLocaleString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      })
+      .replace(/\//g, "-"),
   };
   return transformedData;
 };
