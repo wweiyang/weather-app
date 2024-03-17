@@ -8,6 +8,11 @@ body {
   background-image: url("./assets/bg-light.png");
   background-position: 50% 50%;
 }
+@media (min-width: 768px) {
+  body {
+    background-position: 0% 0%; /* use full image for background on larger devices */
+  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
