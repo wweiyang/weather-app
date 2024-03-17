@@ -35,6 +35,7 @@ export default function Form(): JSX.Element {
   const handleClearInputs = () => {
     setCity("");
     setCountry("");
+    setError("");
   };
 
   return (
@@ -73,7 +74,7 @@ export default function Form(): JSX.Element {
           Clear
         </button>
       </div>
-      <p>{error}</p>
+      {error && <p className={styles.errorMessage}>{error}</p>}
     </form>
   );
 }

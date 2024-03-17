@@ -1,6 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 5rem;
 }
 
 .label {
@@ -35,4 +36,12 @@
 }
 .button:active {
   background-color: #4e3383;
+}
+
+.errorMessage {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid #6642af;
+  background-color: lavender;
+  color: #6642af;
 }
