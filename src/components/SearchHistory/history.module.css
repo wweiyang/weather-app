@@ -5,6 +5,13 @@
   border-radius: 1rem;
 }
 
+.noHistory {
+  margin: 2rem 0;
+  color: #666666;
+  font-size: 1rem;
+  text-align: center;
+}
+
 .historyHeading {
   font-size: 1rem;
   font-weight: normal;
