@@ -1,5 +1,7 @@
-.historyItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.resultsContainer {
+  /* background-color: white; */
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1rem;
 }

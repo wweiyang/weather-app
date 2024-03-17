@@ -39,25 +39,37 @@ export default function Form(): JSX.Element {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <label htmlFor="city">City:</label>
+      <label htmlFor="city" className={styles.label}>
+        City
+      </label>
       <input
         type="text"
         id="city"
         placeholder="Enter city"
         onChange={(e) => setCity(e.target.value)}
         value={city}
+        className={styles.input}
       />
-      <label htmlFor="country">Country:</label>
+      <label htmlFor="country" className={styles.label}>
+        Country
+      </label>
       <input
         type="text"
         id="country"
         placeholder="Enter country"
         onChange={(e) => setCountry(e.target.value)}
         value={country}
+        className={styles.input}
       />
-      <div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleClearInputs}>
+      <div className={styles.buttonGroup}>
+        <button type="submit" className={styles.button}>
+          Search
+        </button>
+        <button
+          type="button"
+          onClick={handleClearInputs}
+          className={styles.button}
+        >
           Clear
         </button>
       </div>
