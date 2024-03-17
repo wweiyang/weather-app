@@ -1,0 +1,64 @@
+Assumptions
+
+- No results shown until first result is returned
+- Temperature to be diplayed is using degrees Celsius and rounded to nearest number
+- Datetime for the results is using the date time value from API response
+
+TODO
+
+- [x] Breakdown app into tasks/sections to build. Prioritise functionality first.
+- [x] Setup React App locally.
+- [x] Create Git repository. Make sure can commit and push to remote repo.
+- [x] Create basic HTML structure of app. Mobile first screen size.
+  - [x] Header
+  - [x] Form
+    - [x] City input
+    - [x] Country input
+    - [x] Search button
+    - [x] Clear button
+    - [x] Error message
+  - [x] Result
+    - [x] Location
+    - [x] Title
+    - [x] Description
+    - [x] Temperature
+    - [x] Humidity
+    - [x] Time
+  - [x] Search History
+    - [x] Location
+    - [x] Time
+    - [x] Search button
+    - [x] Delete button
+- [x] Set up basic form functionality
+  - [x] Handle submit inputs
+  - [x] Handle clear inputs
+- [x] Consume API from OpenWeatherAPI (https://openweathermap.org/api)
+  - [x] Read through API documentation. See how to use it.
+  - [x] Use fetch? Use Axios?
+- [x] Add API functionality to Form
+  - [x] Call API to retrieve data from submitted input
+  - [x] Display API response data as Results
+- [x] Store search history
+  - [x] Figure out how to store search history
+  - [x] Use localStorage?
+- [x] Display search history
+  - [x] Store search history data to storage
+  - [x] Retrieve search history from storage
+  - [x] Display search history
+- [x] Refactor code into components
+- [x] Delete search history item
+- [x] Fix search history not updating when delete item
+  - [x] Maybe need to trigger re-render on delete item?
+- [x] Search weather using search history
+- [x] Add error handling and error message
+  - [x] Display error message on submit
+- [x] Add styling to app. Mobile first. Light mode.
+- [x] Add styling to app for Desktop screen size
+- [x] Display data in correct format
+  - [x] Display temperature in Celsius
+  - [x] Display date and time in correct format
+- [x] Arrange search history ordering by latest at the top to oldest at bottom
+- [ ] Check 1 hour before end. Remember to package and send code. Prepare Github make sure public access.
+- [ ] Change weather icon/image based on results
+- [ ] Build theme switcher to switch light mode and dark mode
+- [ ] Maybe change to use sass?
