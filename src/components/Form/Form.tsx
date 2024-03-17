@@ -23,7 +23,7 @@ export default function Form(): JSX.Element {
   const getWeather = async (city: string, country: string) => {
     try {
       const response = await axios.get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${WEATHER_API_KEY}`
       );
       setWeatherData(response.data);
     } catch (error) {
