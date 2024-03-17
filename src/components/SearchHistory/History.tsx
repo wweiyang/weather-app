@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faTrash } from "@fortawesome/free-solid-svg-icons";
 import styles from "./history.module.css";
 import { WEATHER_API_KEY } from "../../utils/constants";
 
@@ -50,10 +52,15 @@ export default function SearchHistory(): JSX.Element {
             <p className={styles.datetime}>{`${value.datetime}`}</p>
           </div>
           <div>
-            <button onClick={() => handleSearch(value.location, value.country)}>
-              search
+            <button
+              onClick={() => handleSearch(value.location, value.country)}
+              className={styles.button}
+            >
+              <FontAwesomeIcon icon={faSearch} />
             </button>
-            <button onClick={() => deleteItem(key)}>delete</button>
+            <button onClick={() => deleteItem(key)} className={styles.button}>
+              <FontAwesomeIcon icon={faTrash} />
+            </button>
           </div>
         </div>
       ))}

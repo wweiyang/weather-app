@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
-  padding: 0.5rem;
+  padding: 0.75rem 0.5rem;
   background: rgba(255, 255, 255, 0.4);
   border-radius: 1rem;
 }
@@ -28,4 +28,23 @@
 .datetime {
   margin: 0;
   font-size: 0.8rem;
+}
+
+.button {
+  width: 2.3rem;
+  height: 2.3rem;
+  margin: 0 0.25rem;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  color: #666666;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #eeeeee;
+}
+.button:active {
+  background-color: #eeeeee;
 }
