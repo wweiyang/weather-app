@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useWeather } from "../../hooks/useWeather";
 import axios from "axios";
-import styles from "./searchhistory.module.css";
+import styles from "./history.module.css";
 import { WEATHER_API_KEY } from "../../utils/constants";
 
-function SearchHistory() {
+export default function SearchHistory(): JSX.Element {
   const { setCity, setCountry, setWeatherData, setError } = useWeather();
   const [trigger, setTrigger] = useState(false);
 
@@ -39,12 +39,16 @@ function SearchHistory() {
   };
 
   return (
-    <div>
-      <h1>Search History</h1>
+    <div className={styles.historyContainer}>
+      <h1 className={styles.historyHeading}>Search History</h1>
       {localStorageEntries.map(([key, value]) => (
         <div className={styles.historyItem} key={key}>
-          <p>{`${value.location}, ${value.country}`}</p>
-          <p>{`${value.datetime}`}</p>
+          <div>
+            <p
+              className={styles.location}
+            >{`${value.location}, ${value.country}`}</p>
+            <p className={styles.datetime}>{`${value.datetime}`}</p>
+          </div>
           <div>
             <button onClick={() => handleSearch(value.location, value.country)}>
               search
@@ -56,5 +60,3 @@ function SearchHistory() {
     </div>
   );
 }
-
-export default SearchHistory;

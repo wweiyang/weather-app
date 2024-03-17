@@ -1,0 +1,31 @@
+.historyContainer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+.historyHeading {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 1rem;
+}
+
+.location {
+  margin: 0;
+}
+
+.datetime {
+  margin: 0;
+  font-size: 0.8rem;
+}

@@ -4,7 +4,7 @@ import { storeSearchHistory, transformData } from "../../utils/utils";
 import sun from "../../assets/sun.png";
 import styles from "./results.module.css";
 
-import SearchHistory from "../SearchHistory/SearchHistory";
+import SearchHistory from "../SearchHistory/History";
 
 export default function Results(): JSX.Element {
   const { weatherData } = useWeather();
