@@ -5,3 +5,58 @@
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 1rem;
 }
+
+.resultsHeading {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.results {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperature {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #6642af;
+}
+
+.temperatureRange {
+  margin: 0;
+}
+
+.location {
+  margin: 0.5rem 0 0 0;
+  color: #666666;
+  font-weight: bold;
+}
+
+.extraResults {
+  text-align: right;
+  color: #666666;
+}
+
+.weatherImage {
+  width: 150px;
+  height: 150px;
+  margin-top: -6rem;
+}
+
+.title {
+  margin: 0.25rem;
+}
+
+.description {
+  margin: 0.25rem;
+}
+
+.humidity {
+  margin: 0.25rem;
+}
+
+.datetime {
+  margin: 0.25rem;
+}
