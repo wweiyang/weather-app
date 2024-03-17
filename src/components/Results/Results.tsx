@@ -28,14 +28,15 @@ export default function Results(): JSX.Element {
               className={styles.location}
             >{`${transformedData?.location}, ${transformedData.country}`}</p>
           </div>
-          <div className={styles.extraResults}>
+          <div className={styles.addtionalInfo}>
             <img src={sun} alt="weather icon" className={styles.weatherImage} />
-            <p className={styles.title}>{transformedData?.title}</p>
-            <p className={styles.description}>{transformedData?.description}</p>
-            <p
-              className={styles.humidity}
-            >{`Humidity: ${transformedData.humidity}%`}</p>
-            <p className={styles.datetime}>{transformedData?.datetime}</p>
+            <div className={styles.details}>
+              <p className={styles.title}>{transformedData?.title}</p>
+              <p
+                className={styles.humidity}
+              >{`Humidity: ${transformedData.humidity}%`}</p>
+              <p className={styles.datetime}>{transformedData?.datetime}</p>
+            </div>
           </div>
         </div>
       )}

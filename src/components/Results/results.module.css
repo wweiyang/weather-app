@@ -4,6 +4,11 @@
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+@media (min-width: 425px) {
+  .resultsContainer {
+    padding: 2rem;
+  }
+}
 
 .resultsHeading {
   font-size: 1rem;
@@ -22,6 +27,11 @@
   font-weight: bold;
   color: #6642af;
 }
+@media (min-width: 768px) {
+  .temperature {
+    font-size: 6rem;
+  }
+}
 
 .temperatureRange {
   margin: 0;
@@ -33,15 +43,35 @@
   font-weight: bold;
 }
 
-.extraResults {
+.addtionalInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.details {
   text-align: right;
   color: #666666;
+}
+@media (min-width: 768px) {
+  .details {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 3rem;
+  }
 }
 
 .weatherImage {
   width: 150px;
   height: 150px;
   margin-top: -6rem;
+}
+@media (min-width: 768px) {
+  .weatherImage {
+    width: 270px;
+    height: 270px;
+    margin-top: -8.5rem;
+  }
 }
 
 .title {

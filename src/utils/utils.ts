@@ -2,7 +2,6 @@ interface TransformedData {
   location: string;
   country: string;
   title: string;
-  description: string;
   temperature: number;
   temperatureMin: number;
   temperatureMax: number;
@@ -16,7 +15,6 @@ export const transformData = (data: any): TransformedData | null => {
     location: data.name,
     country: data.sys.country,
     title: data.weather[0].main,
-    description: data.weather[0].description,
     temperature: Math.round(data.main.temp),
     temperatureMin: Math.round(data.main.temp_min),
     temperatureMax: Math.round(data.main.temp_max),

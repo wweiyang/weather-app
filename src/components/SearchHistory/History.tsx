@@ -45,13 +45,13 @@ export default function SearchHistory(): JSX.Element {
       <h1 className={styles.historyHeading}>Search History</h1>
       {localStorageEntries.map(([key, value]) => (
         <div className={styles.historyItem} key={key}>
-          <div>
+          <div className={styles.itemDetails}>
             <p
               className={styles.location}
             >{`${value.location}, ${value.country}`}</p>
             <p className={styles.datetime}>{`${value.datetime}`}</p>
           </div>
-          <div>
+          <div className={styles.buttonGroup}>
             <button
               onClick={() => handleSearch(value.location, value.country)}
               className={styles.button}
